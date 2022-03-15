@@ -41,6 +41,9 @@
 /* Class = "NSTextFieldCell"; title = "MinDate"; ObjectID = "9fO-yG-VWd"; */
 "9fO-yG-VWd.title" = "MinDate";
 
+/* Class = "NSTextFieldCell"; title = "MinimumAudibleGain"; ObjectID = "9gM-JU-65M"; */
+"9gM-JU-65M.title" = "MinimumAudibleGain";
+
 /* Class = "NSTextFieldCell"; title = "KeyInitialDelay"; ObjectID = "Bng-Xc-8Qm"; */
 "Bng-Xc-8Qm.title" = "KeyInitialDelay";
 
@@ -131,6 +134,9 @@
 /* Class = "NSTextFieldCell"; title = "ResizeGpuBars"; ObjectID = "ate-vk-6K8"; */
 "ate-vk-6K8.title" = "ResizeGpuBars";
 
+/* Class = "NSTextFieldCell"; title = "MinimumAssistGain"; ObjectID = "cGr-Vg-96c"; */
+"cGr-Vg-96c.title" = "MinimumAssistGain";
+
 /* Class = "NSButtonCell"; title = "ResetTrafficClass"; ObjectID = "cgf-ad-vIe"; */
 "cgf-ad-vIe.title" = "ResetTrafficClass";
 
@@ -139,6 +145,9 @@
 
 /* Class = "NSMenuItem"; title = "HIGH SIERRA"; ObjectID = "ckI-Ly-WbZ"; */
 "ckI-Ly-WbZ.title" = "HIGH SIERRA";
+
+/* Class = "NSTextFieldCell"; title = "PointerPollMax"; ObjectID = "dh5-Pc-bAh"; */
+"dh5-Pc-bAh.title" = "PointerPollMax";
 
 /* Class = "NSTableColumn"; headerCell.title = "Path"; ObjectID = "dim-bs-Whu"; */
 "dim-bs-Whu.headerCell.title" = "Path";
@@ -154,6 +163,9 @@
 
 /* Class = "NSMenuItem"; title = "DEFAULT"; ObjectID = "fZq-zJ-tYW"; */
 "fZq-zJ-tYW.title" = "DEFAULT";
+
+/* Class = "NSTextFieldCell"; title = "MaximumGain"; ObjectID = "g21-Ne-WFK"; */
+"g21-Ne-WFK.title" = "MaximumGain";
 
 /* Class = "NSTabViewItem"; label = "Output"; ObjectID = "gJG-UT-7D3"; */
 "gJG-UT-7D3.label" = "Output";
@@ -181,6 +193,12 @@
 
 /* Class = "NSButtonCell"; title = "AudioSupport"; ObjectID = "oT1-Q2-rhc"; */
 "oT1-Q2-rhc.title" = "AudioSupport";
+
+/* Class = "NSTextFieldCell"; title = "PointerPollMask"; ObjectID = "ps9-16-tfw"; */
+"ps9-16-tfw.title" = "PointerPollMask";
+
+/* Class = "NSTextFieldCell"; title = "PointerPollMin"; ObjectID = "q7Q-3f-fHL"; */
+"q7Q-3f-fHL.title" = "PointerPollMin";
 
 /* Class = "NSTextFieldCell"; title = "AudioOutMask"; ObjectID = "r2Q-7P-fO6"; */
 "r2Q-7P-fO6.title" = "AudioOutMask";

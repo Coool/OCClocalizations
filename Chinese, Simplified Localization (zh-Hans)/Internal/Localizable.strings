@@ -1130,7 +1130,7 @@
 "TT_pickermode" = "选择用于启动管理的启动选择器\n支持以下值:\n•Builtin(默认值)-引导管理由OpenCore处理,使用纯文本用户界面.\n•External-使用外部引导管理协议(如果可用),否则,将使用Builtin模式.\n•Apple-使用Apple引导管理(如果可用),否则,将使用Builtin模式.";
 
 /* hdQ-rL-KAo */
-"TT_pickerattributes" = "设置启动菜单(GUI界面)的属性.\n可以配置自定义的GUI界面风格,设置值包括:\n• 0x0001 —提供引导项的自定义图标:\n\t– APFS分区的预引导根目录下的.VolumeIcon.icns文件. \n\t– 其他文件系统的卷根目录下的.VolumeIcon.icns文件.\n\t– <TOOL_NAME>.icns的工具图标文件.￼ \n可以在Finder中设置卷图标. \n• 0x0002 — 提供引导条目的自定义渲染标题:  \t– 引导器相关的.disk_label(.disk_label_2x)文件,用于所有文件系统. \t– 工具相关的<TOOL_NAME.lbl和<TOOL_NAME.l2x文件. 可以通过disklabel实用程序或bless命令生成预渲染的标签.禁用或缺少文本标签时 (.contentDetails 或 .disk_label.contentDetails) 将被使用.\n• 0x0004 — 提供引导条目的预定义标签图像,而无需自定义条目. 可能会缺少实际启动项的详细信息. \n• 0x0008 — OC_ATTR_HIDE_THEMED_ICONS, 设置某些图标类别的内置图标以匹配主题样式. 这可能会强制显示内置的Time Machine图标. 需要OC_ATTR_USE_VOLUME_ICON.\n• 0x0010 — 在选择器中启用指针控制(如果可用).这可以利用鼠标或触控板来控制UI元素. \n• 0x0020 — OC_ATTR_DEBUG_DISPLAY, 启用显示其他时序和调试信息, 在DEBUG和NOOPT中的文本菜单中.\n• 0x0040 — OC_ATTR_USE_MINIMAL_UI, 使用最少的UI显示, 没有关机或重启按钮, 图形化启动菜单和文本启动菜单都有效.\n•0x0080 — OC_ATTR_USE_FLAVOUR_ICON,提供灵活的启动 条目内容描述,适合在不同的内容集中选择最佳媒体:\n启用后,OpenCanopy中的条目图标以及OpenCanopy和内置引导选择器中的音频辅助条目声音将通过一种称为内容风格(Flavor)的方法进行选择.要确定内容风格,使用以下算法:\n– 对于工具,从Flavor字段读取值.\n– 对于自动发现的条目,从引导加载程序旁边的.contentFlavour文件(如果存在)中读取.\n– 对于自定义条目,如果Flavor为Auto,则从引导加载程序旁边的.contentFlavour文件中读取,\否则通过Flavor值本身指定.\n– 如果读取的Spice为Auto或没有.contentFlavour,则选择条目Flavor基于条目类型,(例如输入Windows自动获得Windows风格).\nFlavor值是一个序列::分隔的名称限制为64个可打印7位ASCII字符.该名称最多可支持五个名称.每个名称都代表一种Flavor, 具有最高优先级的名字和具有最低优先级的名字.这样的结构允许以更特定的方式描述条目,并根据视听包的支持灵活地选择图标.缺少音频或图标文件意味着应尝试使用下一种样式,如果所有样式均缺失,则根据条目的类型进行选择.Flavor示例:BigSur:Apple,Windows10:Windows. \n使用样式意味着您可以轻松地在图标集之间进行切换,通过样式从每个集合中选择最佳的可用图标.例如.指定图标样式Debian:Linux将使用图标Debian.icns(如果提供),然后尝试Linux.icns,然后回退到操作系统的默认值,即HardDrive.icns.\n要记住的事项:\n– 出于安全原因,Ext<Flavour>.icns和<Flavour>.icns均受支持,并且如果条目位于外部驱动器上,则仅使用Ext<Flavour>.icns \n(默认为后备ExtHardDrive.icns). –在两者都适用的情况下,VolumeIcon.icns优先于.contentFlavour.\n– 为了使图标和音频辅助功能对于工具(例如,对于UEFI Shell)正确工作,请使用系统默认的引导条目图标(请参阅Docs/Flavours.md).即使禁用了Flavor,Flavor设置中为“工具”或“条目”指定的值仍将继续应用.在这种情况下,非系统图标将被忽略.此外,还对风格UEFIShell和NVRAMReset进行了特殊处理,确定了它们各自的工具以应用正确的音频助手,默认内置标签等.\n- Docs/Flavours.md中提供了推荐风格的列表.";
+"TT_pickerattributes" = "设置启动菜单(GUI界面)的属性.\n可以配置自定义的GUI界面风格,设置值包括:\n• 0x0001 —提供引导项的自定义图标:\n\t– APFS分区的预引导根目录下的.VolumeIcon.icns文件. \n\t– 其他文件系统的卷根目录下的.VolumeIcon.icns文件.\n\t– <TOOL_NAME>.icns的工具图标文件.￼ \n可以在Finder中设置卷图标. \n• 0x0002 — 提供引导条目的自定义渲染标题:  \t– 引导器相关的.disk_label(.disk_label_2x)文件,用于所有文件系统. \t– 工具相关的<TOOL_NAME.lbl和<TOOL_NAME.l2x文件. 可以通过disklabel实用程序或bless命令生成预渲染的标签.禁用或缺少文本标签时 (.contentDetails 或 .disk_label.contentDetails) 将被使用.\n• 0x0004 — 提供引导条目的预定义标签图像,而无需自定义条目. 可能会缺少实际启动项的详细信息. \n• 0x0008 — OC_ATTR_HIDE_THEMED_ICONS, 设置某些图标类别的内置图标以匹配主题样式. 这可能会强制显示内置的Time Machine图标. 需要OC_ATTR_USE_VOLUME_ICON.\n• 0x0010 — 在选择器中启用指针控制(如果可用).这可以利用鼠标或触控板来控制UI元素. \n• 0x0020 — OC_ATTR_DEBUG_DISPLAY, 启用显示其他时序和调试信息, 在DEBUG和NOOPT中的文本菜单中.\n• 0x0040 — OC_ATTR_USE_MINIMAL_UI, 使用最少的UI显示, 没有关机或重启按钮, 图形化启动菜单和文本启动菜单都有效.\n•0x0080 — OC_ATTR_USE_FLAVOUR_ICON,提供灵活的启动 条目内容描述,适合在不同的内容集中选择最佳媒体:\n启用后,OpenCanopy中的条目图标以及OpenCanopy和内置引导选择器中的音频辅助条目声音将通过一种称为内容风格(Flavor)的方法进行选择.要确定内容风格,使用以下算法:\n– 对于工具,从Flavor字段读取值.\n– 对于自动发现的条目,从引导加载程序旁边的.contentFlavour文件(如果存在)中读取.\n– 对于自定义条目,如果Flavor为Auto,则从引导加载程序旁边的.contentFlavour文件中读取,\否则通过Flavor值本身指定.\n– 如果读取的Spice为Auto或没有.contentFlavour,则选择条目Flavor基于条目类型,(例如输入Windows自动获得Windows风格).\nFlavor值是一个序列::分隔的名称限制为64个可显示7位ASCII字符.该名称最多可支持五个名称.每个名称都代表一种Flavor, 具有最高优先级的名字和具有最低优先级的名字.这样的结构允许以更特定的方式描述条目,并根据视听包的支持灵活地选择图标.缺少音频或图标文件意味着应尝试使用下一种样式,如果所有样式均缺失,则根据条目的类型进行选择.Flavor示例:BigSur:Apple,Windows10:Windows. \n使用样式意味着您可以轻松地在图标集之间进行切换,通过样式从每个集合中选择最佳的可用图标.例如.指定图标样式Debian:Linux将使用图标Debian.icns(如果提供),然后尝试Linux.icns,然后回退到操作系统的默认值,即HardDrive.icns.\n要记住的事项:\n– 出于安全原因,Ext<Flavour>.icns和<Flavour>.icns均受支持,并且如果条目位于外部驱动器上,则仅使用Ext<Flavour>.icns \n(默认为后备ExtHardDrive.icns). –在两者都适用的情况下,VolumeIcon.icns优先于.contentFlavour.\n– 为了使图标和音频辅助功能对于工具(例如,对于UEFI Shell)正确工作,请使用系统默认的引导条目图标(请参阅Docs/Flavours.md).即使禁用了Flavor,Flavor设置中为“工具”或“条目”指定的值仍将继续应用.在这种情况下,非系统图标将被忽略.此外,还对风格UEFIShell和NVRAMReset进行了特殊处理,确定了它们各自的工具以应用正确的音频助手,默认内置标签等.\n- Docs/Flavours.md中提供了推荐风格的列表.";
 
 /* gD0-Iz-n35 */
 "TT_ConsoleAttributes" = "设置启动菜单的颜色属性.\n支持根据UEFI规范将颜色参数的前景色和背景色之和计算并转为十进制填入.\n颜色名称列表：\n•0x00-EFI_BLACK\n•0x01-EFI_BLUE\n•0x02-EFI_GREEN\n•0x03-EFI_CYAN\n•0x04-EFI_RED\n•0x05-EFI_MAGENTA\n•0x06-EFI_BROWN\n•0x07-EFI_LIGHTGRAY\n•0x08-EFI_DARKGRAY\n•0x09-EFI_LIGHTBLUE\n•0x0A-EFI_LIGHTGREEN\n•0x0B-EFI_LIGHTCYAN\n•0x0C-EFI_LIGHTRED\n•0x0D-EFI_LIGHTMAGENTA\n•0x0E-EFI_BACKGROUND_LIGHTGRAY\n•0x0F-EFI_WHITE\n•0x00-EFI_BACKGROUND_BLACK\n•0x10-EFI_BACKGROUND_BLUE\n•0x20-EFI_BACKGROUND_GREEN\n•0x30-EFI_BACKGROUND_CYAN\n•0x40-EFI_BACK_ROG_RO_ROUND_RED\n•0x50-EFI_BACKGROUND_MAGENTA\n•0x60-EFI_BACKGROUND_BROWN\n•0x70-EFI_BACKGROUND_LIGHTGRAY\n注意：此选项可能不适用于系统文本渲染器.设置与黑色不同的背景可以帮助测试正确的GOP功能.";
@@ -1167,10 +1167,12 @@
 
 /* DEBUG */
 /* PwU-cB-LIO */
-"TT_DisplayDelay" = "在屏幕上可见的每条打印行(即控制台)之后执行的延迟(以微秒为单位).默认忽略!";
+"TT_DisplayDelay" = "在屏幕上可见的每条显示行(即控制台)之后执行的延迟(以微秒为单位).默认忽略!";
 
 /* omf-bH-d4v */
 "TT_displaylevel" = "2147483714 在屏幕上显示所有 Debug 信息\n0 隐藏所有 Debug 信息!";
+
+"TT_LogModules" = "按模块过滤日志条目.\n\n此选项在日志和屏幕上过滤特定模块生成的日志记录. 支持两种模式:\n\t• + — 正向过滤：仅显示选定的模块.\n\t• - — 反向过滤: 排除选定的模块.\n\n选择多个时, 用逗号 (,) 分隔. 例如, +OCCPU,OCA,OCB 仅表示 OCCPU, OCA、OCB 正在显示, 而 -OCCPU,OCA,OCB 表示这些模块被过滤掉. 未指定符号时, 将使用正过滤(+). * 表示正在记录的所有模块.\n\n注1: 运行库的首字母缩略词可以在下面的库部分中找到.\n\n注2: 配置日志协议前显示的信息无法过滤.";
 
 /* 2Vb-s2-Ejp */
 "TT_target" = "0: 关闭日志记录\n3: 允许屏幕输出日志\n19: 允许屏幕输出 UEFI 变量日志\n67: 在 ESP 分区根目录生成日志文件 opencore-YYYY-MM-DD-HHMMSS.txt, 但屏幕上不显示日志!此功能需要用DEBUG版OC引导.";
@@ -1195,7 +1197,7 @@
 "TT_HaltLevel" = "参考OC手册!";
 
 /* tmf-fU-Pjy */
-"TT_exposesensitivedata" = "对操作系统的敏感数据暴露位掩码总和(最终要将16进制总和转为10进制数值).\n• 0x01 — 将可打印的引导程序路径公开为 UEFI 变量.\n• 0x02 — 将 OpenCore 版本公开为 UEFI 变量.\n• 0x04 — 在 OpenCore 选择器菜单标题中公开 OpenCore 版本.\n• 0x08 — 将 OEM 信息作为一组 UEFI 变量公开.\n\n根据加载顺序,暴露的引导程序路径指向 OpenCore.efi 或其引导程序. 想获取引导程序路径, 可在 macOS 中使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:boot-path\n\n要使用引导程序路径挂载引导程序卷,请在 macOS 中使用以下命令:\nu=$(nvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:boot-path | sed 's/.*GPT,\\([^,]*\\),.*/\\1/'); \\ if [ \"$u\" != \"\" ]; then sudo diskutil mount $u ; fi\n\n获取当前的 OpenCore 版本, 在 macOS 中使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:opencore-version\n如果未公开 OpenCore 版本,则变量将包含 UNK-000-0000-00-00 序列.\n\n获取 OEM 信息,在 macOS 中使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-product\n\n获取厂商名称,使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-vendor\n\n获取主板型号,使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-board";
+"TT_exposesensitivedata" = "对操作系统的敏感数据暴露位掩码总和(最终要将16进制总和转为10进制数值).\n• 0x01 — 将可显示的引导程序路径公开为 UEFI 变量.\n• 0x02 — 将 OpenCore 版本公开为 UEFI 变量.\n• 0x04 — 在 OpenCore 选择器菜单标题中公开 OpenCore 版本.\n• 0x08 — 将 OEM 信息作为一组 UEFI 变量公开.\n\n根据加载顺序,暴露的引导程序路径指向 OpenCore.efi 或其引导程序. 想获取引导程序路径, 可在 macOS 中使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:boot-path\n\n要使用引导程序路径挂载引导程序卷,请在 macOS 中使用以下命令:\nu=$(nvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:boot-path | sed 's/.*GPT,\\([^,]*\\),.*/\\1/'); \\ if [ \"$u\" != \"\" ]; then sudo diskutil mount $u ; fi\n\n获取当前的 OpenCore 版本, 在 macOS 中使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:opencore-version\n如果未公开 OpenCore 版本,则变量将包含 UNK-000-0000-00-00 序列.\n\n获取 OEM 信息,在 macOS 中使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-product\n\n获取厂商名称,使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-vendor\n\n获取主板型号,使用以下命令:\nnvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-board";
 
 /* VQF-Ne-GWu */
 "TT_scanpolicy" = "0: 允许扫描所有可用的硬盘\n其它值请参考官方文档, 对给出的选项做 16 进制加法运算";
@@ -1292,7 +1294,7 @@
 "TT_CustomMemory" = "使用自定义内存配置. 这将完全替换SMBIOS中的任何现有内存配置, 并且仅在UpdateSMBIOS设置为true时有效.";
 
 /* 1BR-wt-792 */
-"TT_UseRawUuidEncoding" = "对SMBIOS UUID使用原始编码.\n\n每个UUID AABBCCDD-EEFF-GGHH-IIJJ-KKLLMMNNOOPP本质上是一个十六进制的16字节数字. 它可以通过两种方式进行编码:\n• Big Endian — 通过不写任何顺序就写所有字节({AA BB CC DD EE FF GG HH II JJ KK LL MM NN OO PP}). 此方法也称为RFC 4122编码或Raw编码.\n• Little Endian — 通过将字节解释为数字并使用Little Endian字节表示形式 ({DD CC BB AA FF EE HH GG II JJ KK LL MM NN OO PP}).\nSMBIOS规范未明确指定直到SMBIOS 2.6的UUID的编码格式,该规范指出应使用Little Endian编码. 由于不同的供应商在此之前使用了不同的编码,这导致了固件实现和系统软件的混乱..\n• 苹果在任何地方都使用Big Endian格式,但它忽略了macOS中的SMBIOS UUID.\n• dmidecode对SMBIOS 2.5.x或更低版本使用Big Endian格式,对2.6及更高版本使用Little Endian格式..\nAcidanthera dmidecode可打印所有这三个.\n• Windows在所有地方都使用Little Endian格式,但是它只会影响值的视觉表示.\n\n在生成修改后的DMI表时,OpenCore始终设置最新的SMBIOS版本(当前为3.2).如果启用了UseRawUuidEncoding,则将使用Big Endian格式存储SystemUUID数据.否则使用Little Endian.\n\n注意：由于DataHub和NVRAM中使用的UUID未标准化,因此由Apple添加, 这种偏好不会影响他们. 与SMBIOS不同,它们始终以Big Endian格式存储.";
+"TT_UseRawUuidEncoding" = "对SMBIOS UUID使用原始编码.\n\n每个UUID AABBCCDD-EEFF-GGHH-IIJJ-KKLLMMNNOOPP本质上是一个十六进制的16字节数字. 它可以通过两种方式进行编码:\n• Big Endian — 通过不写任何顺序就写所有字节({AA BB CC DD EE FF GG HH II JJ KK LL MM NN OO PP}). 此方法也称为RFC 4122编码或Raw编码.\n• Little Endian — 通过将字节解释为数字并使用Little Endian字节表示形式 ({DD CC BB AA FF EE HH GG II JJ KK LL MM NN OO PP}).\nSMBIOS规范未明确指定直到SMBIOS 2.6的UUID的编码格式,该规范指出应使用Little Endian编码. 由于不同的供应商在此之前使用了不同的编码,这导致了固件实现和系统软件的混乱..\n• 苹果在任何地方都使用Big Endian格式,但它忽略了macOS中的SMBIOS UUID.\n• dmidecode对SMBIOS 2.5.x或更低版本使用Big Endian格式,对2.6及更高版本使用Little Endian格式..\nAcidanthera dmidecode可显示所有这三个.\n• Windows在所有地方都使用Little Endian格式,但是它只会影响值的视觉表示.\n\n在生成修改后的DMI表时,OpenCore始终设置最新的SMBIOS版本(当前为3.2).如果启用了UseRawUuidEncoding,则将使用Big Endian格式存储SystemUUID数据.否则使用Little Endian.\n\n注意：由于DataHub和NVRAM中使用的UUID未标准化,因此由Apple添加, 这种偏好不会影响他们. 与SMBIOS不同,它们始终以Big Endian格式存储.";
 
 /* DataHub */
 /* U5s-uE-f0J */
@@ -1550,6 +1552,12 @@
 /* TSX-3o-2jP */
 "TT_PointerSpeedMul" = "在Apple Event协议的OpenCore实现中配置指针速度倍增器. \n\n配置加倍以进行指针移动. Apple OEM默认值为1.";
 
+"TT_PointerPollMin" = "以毫秒为单位配置最小指针轮询周期.\n\n这是 OpenCore 内置 AppleEvent 驱动程序轮询指针设备(例如鼠标、触控板)以获取运动事件的最短时间. 当前实现默认为 10 毫秒.设置 0 保持此默认值不变.\n\n注意：OEM Apple 实施使用 2 毫秒的轮询速率.";
+
+"TT_PointerPollMax" = "以毫秒为单位配置最大指针轮询周期.\n\n这是 OpenCore 内置 AppleEvent 驱动程序轮询指针设备(例如鼠标、触控板)以获取运动事件的最长时间. 只要设备没有及时响应,周期就会增加到这个值. 当前实现默认为 80 毫秒. 设置 0 保持此默认值不变.\n\n戴尔笔记本电脑中常见的某些触控板驱动程序在没有发生物理移动时响应速度可能非常慢. 这会影响 OpenCanopy 和 FileVault 2 用户界面的响应能力和加载时间. 增加轮询周期可以减少影响.\n\n注意：OEM Apple 实施使用 2 毫秒的轮询速率.";
+
+"TT_PointerPollMask" = "配置轮询指针的索引.\n\n选择指针设备以轮询 AppleEvent 运动事件. -1 表示所有设备.位总和用于确定特定设备. 例如,要启用设备 0、2、3,该值将为 1+4+8(对应的 2 次方). 共支持 32 个可配置设备.\n\n即使没有相应的物理设备可用,固件中也可能存在某些指针设备. 这些设备通常是占位符、聚合设备, 或代理. 从这些设备收集信息可能会导致用户界面中的运动活动不准确,甚至导致性能问题. 对于存在此类问题的笔记本电脑设置,建议禁用此类指针设备.\n\n系统中可用的指针设备数量可以在日志中找到. 有关详细信息,请参阅找到 N 个指针设备消息.\n\n注意：使用 OEM Apple 实现时无效(请参阅 AppleEvent 设置).";
+
 /* Audio */
 /* YTE-Ba-80O */
 "TT_AudioDevice" = "用于音频功能支持的指定音频控制器的设备路径.\n通常,它包含内置的模拟音频控制器(HDEF)设备路径, 比如:PciRoot(0x0)/Pci(0x1b,0x0).\n可以在调试日志中找到音频控制器的列表:\nOCAU: 1/3 PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x1)/VenMsg(<redacted>,00000000) (4 outputs)\nOCAU: 2/3 PciRoot(0x0)/Pci(0x3,0x0)/VenMsg(<redacted>,00000000) (1 outputs)\nOCAU: 3/3 PciRoot(0x0)/Pci(0x1B,0x0)/VenMsg(<redacted>,02000000) (7 outputs)\n\n也可以在macOS中使用gfxutil -f HDEF命令获取或者用Hackintool工具查看音频设备地址.指定空的设备路径将导致使用第一个可用的音频控制器.";
@@ -1560,8 +1568,8 @@
 /* UrW-oc-0Oc */
 "TT_AudioOut" = "指定编解码器输出端口的索引,一般从0开始.\n\n找到正确端口的最快方法是将值从0暴力尝试到N-1,N是在日志里显示的输出端口索引数,比如日志里显示有3个输出,可以从0-2挨个试.";
 
-"TT_AudioOutMask" = "指示用于 UEFI 声音的输出通道的位字段.\n\n该选项普通用户一般选成 -1 即可！\n\nAudio mask 是 1 « audio output (相当于 2 ˆ audio output). 例如，对于 audio output0，位掩码为1, 输出3为8，输出0和3为9.\n\n每个HDA编解码器的可用输出节点数(N)显示在调试日志中(用粗体-斜体标记), 可以选择audio output 0 到 N-1:\nOCAU: 1/3 PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x1)/VenMsg(<redacted>,00000000) (4 个输出)\nOCAU: 2/3 PciRoot(0x0)/Pci(0x3,0x0)/VenMsg(<redacted>,00000000) (1 个输出)\nOCAU: 3/3 PciRoot(0x0)/Pci(0x1B,0x0)/VenMsg(<redacted>,02000000) (7 个输出)\n\n使用AudioDxe时，将在驱动程序绑定期间记录有关每个输出通道的附加信息, 包括每个输出的位掩码. 应将所需输出的位掩码值相加，以获得AudioOutMask值:\nHDA: | Port widget @ 0x9 是一种输出 (pin defaults 0x2B4020) (bitmask 1)\nHDA: | Port widget @ 0xA 是一种输出 (pin defaults 0x90100112) (bitmask 2)\nHDA: | Port widget @ 0xB 是一种输出 (pin defaults 0x90100110) (bitmask 4)\nHDA: | Port widget @ 0x10 是一种输出 (pin defaults 0x4BE030) (bitmask 8)\n\n可以使用以下命令从Linux编解码器转储中找到有关可用输出通道的更多信息:
-cat /proc/asound/card{n}/codec#{m}\n\n使用AudioOutMask, 它可以播放声音到一个以上的通道(例如，主扬声器加低音扬声器;耳机加扬声器)，只要所有选择的输出支持使用的声音文件格式; 如果没有，那么没有声音将播放和警告将被记录.\n\n当编解码器上所有可用的输出通道都支持可用的声音文件格式时, 然后值为-1将同时向所有通道播放声音. 如果这不起作用, 通常最快的方法是逐个尝试每个可用的输出通道, 以便计算出使用哪个通道.";
+"TT_AudioOutMask" = "指示用于 UEFI 声音的输出通道的位字段.\n\n该选项普通用户一般选成 -1 即可！\n\nAudio mask 是 1 « audio output (相当于 2 ˆ audio output). 例如,对于 audio output0,位掩码为1, 输出3为8,输出0和3为9.\n\n每个HDA编解码器的可用输出节点数(N)显示在调试日志中(用粗体-斜体标记), 可以选择audio output 0 到 N-1:\nOCAU: 1/3 PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x1)/VenMsg(<redacted>,00000000) (4 个输出)\nOCAU: 2/3 PciRoot(0x0)/Pci(0x3,0x0)/VenMsg(<redacted>,00000000) (1 个输出)\nOCAU: 3/3 PciRoot(0x0)/Pci(0x1B,0x0)/VenMsg(<redacted>,02000000) (7 个输出)\n\n使用AudioDxe时,将在驱动程序绑定期间记录有关每个输出通道的附加信息, 包括每个输出的位掩码. 应将所需输出的位掩码值相加,以获得AudioOutMask值:\nHDA: | Port widget @ 0x9 是一种输出 (pin defaults 0x2B4020) (bitmask 1)\nHDA: | Port widget @ 0xA 是一种输出 (pin defaults 0x90100112) (bitmask 2)\nHDA: | Port widget @ 0xB 是一种输出 (pin defaults 0x90100110) (bitmask 4)\nHDA: | Port widget @ 0x10 是一种输出 (pin defaults 0x4BE030) (bitmask 8)\n\n可以使用以下命令从Linux编解码器转储中找到有关可用输出通道的更多信息:
+cat /proc/asound/card{n}/codec#{m}\n\n使用AudioOutMask, 它可以播放声音到一个以上的通道(例如,主扬声器加低音扬声器;耳机加扬声器),只要所有选择的输出支持使用的声音文件格式; 如果没有,那么没有声音将播放和警告将被记录.\n\n当编解码器上所有可用的输出通道都支持可用的声音文件格式时, 然后值为-1将同时向所有通道播放声音. 如果这不起作用, 通常最快的方法是逐个尝试每个可用的输出通道, 以便计算出使用哪个通道.";
 
 /* PF5-bc-9Z2 */
 "TT_MinimumVolume" = "最小音量从0到100.\n\n当计算出的音量级别小于MinimumVolume时,屏幕阅读器将使用此音量级别.如果计算出的音量小于MinimumVolume,则不会发出开机提示音.";
@@ -1581,7 +1589,13 @@ cat /proc/asound/card{n}/codec#{m}\n\n使用AudioOutMask, 它可以播放声音�
 /* 4mo-Ut-bYl */
 "TT_ResetTrafficClass" = "将HDA流量等级选择寄存器设置为TC0.\n\n仅当TCSEL寄存器配置为使用TC0流量等级时,AppleHDA kext才能正常运行. 有关此寄存器的更多详细信息,请参阅英特尔I/O控制器9(ICH9)数据表(或任何其他ICH数据表).\n\n注意:此选项独立于AudioSupport. 如果使用AppleALC,则最好改用AppleALC alctsel属性.";
 
-"TT_DisconnectHda" = "加载驱动程序前断开HDA控制器.\n\n可能需要在某些系统上(例如苹果硬件，VMware Fusion客户端)允许UEFI声音驱动程序(如AudioDxe)控制音频硬件.";
+"TT_DisconnectHda" = "加载驱动程序前断开HDA控制器.\n\n可能需要在某些系统上(例如苹果硬件,VMware Fusion客户端)允许UEFI声音驱动程序(如AudioDxe)控制音频硬件.";
+
+"TT_MaximumGain" = "UEFI 音频使用的最大增益,以分贝 (dB) 为单位,相对于 0 dB 的放大器参考电平(见注 1).\n\n当从 SystemAudioVolumeDB NVRAM 变量读取的系统放大器增益高于此值时,所有 UEFI 音频都将使用此增益设置. 这是为了避免当系统音量设置得非常高时 UEFI 音频过大, 或 SystemAudioVolumeDB NVRAM 值配置错误.\n\n注 1：系统增益值的典型范围是从大约 -60 dB 到正好 0 dB, 其中 0 dB 代表放大器的最大音量. 然而,这些值取决于硬件并且可能不同, 在非标准硬件上包括高于零的增益水平(因此 0 dB 不是放大器的最大音量).在任何硬件上, 遵循英特尔 HDA 规范,范围将始终包括 0 dB,有些是(在任一端或介于两者之间).\n\n注 2：-128 dB 到 127 dB 以外的值(远远超出物理上合理的分贝值)是不允许的.\n\n注 3：数字音频输出——在操作系统中没有音量滑块——忽略这个和所有其他增益设置,只有静音设置是相关的.";
+
+"TT_MinimumAssistGain" = "用于拾音器音频辅助的最小增益(以分贝 (dB) 为单位).\n\n如果从 SystemAudioVolumeDB NVRAM 变量读取的系统放大器增益低于此值,则屏幕阅读器将使用此放大器增益.\n\n注意：除此设置外,因为音频辅助必须是可听的才能发挥其功能, 即使操作系统声音已静音或设置了 StartupMute NVRAM 变量,音频辅助也不会静音.";
+
+"TT_MinimumAudibleGain" = "尝试播放任何声音的最小增益(以分贝 (dB) 为单位).\n\n如果 SystemAudioVolumeDB NVRAM 变量中的系统放大器增益级别低于此值,则不会播放启动铃声.\n\n注意：此设置旨在节省由于音频设置为听不见的音量而导致的不必要暂停, 当无论如何都听不到声音的时候.是否有听不见的音量取决于硬件. 在某些硬件(包括 Apple)上,音频值与硬件非常匹配,可用的最低音量非常安静但可听, 而在其他一些硬件组合上,音量范围的最低部分可能根本听不到.";
 
 /* Drivers */
 /* 6zo-Jl-Ryl */
@@ -1633,11 +1647,11 @@ cat /proc/asound/card{n}/codec#{m}\n\n使用AudioOutMask, 它可以播放声音�
 
 "TT_ProvideConsoleGop" = "macOS 引导加载程序要求 GOP (图形输出协议) 存在于控制台句柄上\n大部分的笔记本都不提供 GOP, 台式机的独立显卡可以单独刷入 GOP\n如果选择了啰嗦模式启动之后不出现Verbose详细信息,请启用此项\n开启此选项能最大可能保证 OpenCore UI 和 苹果标志 以正确分辨率显示";
 
-"TT_ReconnectGraphicsOnConnect" = "在驱动程序连接期间重新连接所有图形驱动程序.\n\n在某些固件上, 可能需要使用替代图形驱动程序在旧机器上提供更好的屏幕分辨率选项, 或支持 ForceResolution 的驱动程序。此选项尝试在连接新加载的驱动程序之前断开所有当前连接的图形驱动程序.\n\n注意: 此选项需要启用 ConnectDrivers.";
+"TT_ReconnectGraphicsOnConnect" = "在驱动程序连接期间重新连接所有图形驱动程序.\n\n在某些固件上, 可能需要使用替代图形驱动程序在旧机器上提供更好的屏幕分辨率选项, 或支持 ForceResolution 的驱动程序.此选项尝试在连接新加载的驱动程序之前断开所有当前连接的图形驱动程序.\n\n注意: 此选项需要启用 ConnectDrivers.";
 
 "TT_ReconnectOnResChange" = "有些固件在 GOP 分辨率改变后要求重新连接控制器才能输出文本, 开启这个选项会导致从 UEFI Shell 中启动 OpenCore 时直接黑屏, 尽量避免开启.\n如果你遇到开机直到登录界面之前一直是黑屏,请试试选择 YES.";
 
-"TT_ReplaceTabWithSpace" = "某些固件无法打印制表符,甚至不能打印制表符之后的所有内容,从而导致困难或无法使用UEFI Shell内置的文本编辑器来编辑属性列表和其他文档. 此选项使控制台输出空间代替制表符.\n注意:此选项仅适用于系统渲染器才能起作用.";
+"TT_ReplaceTabWithSpace" = "某些固件无法显示制表符,甚至不能显示制表符之后的所有内容,从而导致困难或无法使用UEFI Shell内置的文本编辑器来编辑属性列表和其他文档. 此选项使控制台输出空间代替制表符.\n注意:此选项仅适用于系统渲染器才能起作用.";
 
 "TT_SanitiseClearScreen" = "当使用大显示(例如2K或4K)时,某些固件会将屏幕分辨率重置为故障安全值(如1024x768),以清除屏幕内容.此选项尝试应用变通方法.\n注意:需要将TextRenderer设置为系统渲染模式才能使其生效.在所有已知的受影响系统上,必须将ConsoleMode设置为空字符串才能使其生效.";
 
@@ -1647,7 +1661,7 @@ cat /proc/asound/card{n}/codec#{m}\n\n使用AudioOutMask, 它可以播放声音�
 
 "TT_GopPassThrough" = "在UGA协议实例之上提供GOP协议实例.\n\n该选项支持的值如下:\n• Enabled — 为所有UGA协议提供GOP.\n• Apple — 为启用了AppleFramebufferInfo的协议提供GOP.\n• Disabled — 不提供GOP.\n\n此选项通过基于UGA的代理为未实现协议的固件提供GOP协议.\n\n注意：此选项要求启用ProvideConsoleGop.";
 
-"TT_UIScale" = "用户界面缩放设置.\n\n对应4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14:UIScale变量.\n• 1 — 1 倍缩放, 正常显示无缩放.\n• 2 — 2 倍缩放, 适用开启 HiDPI 的显示.\n• -1 — 保持当前变量不变.\n• 0 — 根据当前分辨率自动选择缩放比例.\n\n注 1:自动比例检测基于总像素面积工作，在小型 HiDPI 显示器上可能会失败, 在这种情况下，可以使用 NVRAM 部分手动管理该值.\n\n注 2:当从手动指定的 NVRAM 变量切换到此首选项时，可能需要重置 NVRAM.";
+"TT_UIScale" = "用户界面缩放设置.\n\n对应4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14:UIScale变量.\n• 1 — 1 倍缩放, 正常显示无缩放.\n• 2 — 2 倍缩放, 适用开启 HiDPI 的显示.\n• -1 — 保持当前变量不变.\n• 0 — 根据当前分辨率自动选择缩放比例.\n\n注 1:自动比例检测基于总像素面积工作,在小型 HiDPI 显示器上可能会失败, 在这种情况下,可以使用 NVRAM 部分手动管理该值.\n\n注 2:当从手动指定的 NVRAM 变量切换到此首选项时,可能需要重置 NVRAM.";
 
 /* ProtocolOverrides */
 "TT_AppleAudio" = "重新安装具有内置版本的Apple音频协议.\nApple音频协议允许macOS引导程序和OpenCore播放声音和信号以进行屏幕阅读或声音错误报告.\n支持的协议是蜂鸣声生成和VoiceOver. 在macOS High Sierra(10.13)之前不受支持.相反,较早的macOS版本使用AppleHDA协议,该协议目前尚未实现.\n\n要在实现某些协议的Mac系统上的OpenCore用户界面中获得音频播放,应启用此设置.\n\n注意：需要在UEFI-->Audio部分中配置后端音频驱动程序,这些协议才能使用.";
@@ -1713,9 +1727,9 @@ cat /proc/asound/card{n}/codec#{m}\n\n使用AudioOutMask, 它可以播放声音�
 
 "TT_ReloadOptionRoms" = "查询PCI设备并重新加载其Option ROM(如果有).\n\n例如,通过ForgeUefiSupport升级固件版本后,此选项允许在较旧的Mac上重新加载NVIDIA GOP Option ROM.";
 
-"TT_EnableVectorAcceleration" = "启用SHA-512和SHA-384哈希算法的AVX矢量加速.";
+"TT_EnableVectorAcceleration" = "启用SHA-512和SHA-384哈希算法的AVX矢量加速.\n注意:这个选项可能会导致某些笔记本电脑固件出现问题，包括联想系列.";
 
-"TT_EnableVmx" = "启用 Intel 虚拟机扩展.\n\n注意:需要在某些 Mac 硬件上允许 Windows 中的虚拟化. 在大多数固件上启动 OpenCore 之前，由 BIOS 启用或禁用并锁定 VMX. 尽可能使用 BIOS 启用虚拟化.";
+"TT_EnableVmx" = "启用 Intel 虚拟机扩展.\n\n注意:需要在某些 Mac 硬件上允许 Windows 中的虚拟化. 在大多数固件上启动 OpenCore 之前,由 BIOS 启用或禁用并锁定 VMX. 尽可能使用 BIOS 启用虚拟化.";
 
 "TT_ForceOcWriteFlash" = "允许为所有 OpenCore 系统变量写入闪存.\n\n注意: 大多数类型的固件都应禁用此值,但仍可配置以解决可能存在易失性变量存储溢出或类似问题的固件. 可以观察到跨多个操作系统的启动问题,例如没有这个怪癖的联想 Thinkpad T430 和 T530. 出于安全原因,与安全启动和休眠相关的 Apple 变量不受此限制. 此外,一些 OpenCore 变量因不同原因被豁免, 例如由于可用的用户选项而导致的引导日志, 以及由于时序问题导致的 TSC 频率.切换此选项时, 可能需要重置 NVRAM 以确保完整功能.";
 
